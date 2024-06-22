@@ -1,0 +1,41 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "cwd": "${workspaceFolder}",
+      "executable": "${workspaceRoot}/build/SD.11.0/SD.11.0.elf",
+      "name": "PyOCD Debug",
+      "request": "launch",
+      "type": "cortex-debug",
+      "runToEntryPoint": "main",
+      "showDevDebugOutput": "none",
+      "servertype": "pyocd",
+      "interface": "swd",
+      "serverArgs": [
+        "--frequency",
+        "1000000"
+      ],
+      "targetId": "mm32f0162d6pv",
+      "svdFile": "${workspaceRoot}\\.pack\\MindMotion\\MM32F0160_DFP_1.0.0\\SVD\\MM32F0160.svd"
+    },
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": true,
+      "cwd": "f:/svn/Embedded/SoftwareDevelopment/SD.11/SD.11.0/Project",
+      "program": "f:/svn/Embedded/SoftwareDevelopment/SD.11/SD.11.0/Project/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}

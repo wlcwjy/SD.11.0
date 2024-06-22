@@ -1,0 +1,99 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "${command:eide.project.build}",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "flash",
+            "type": "shell",
+            "command": "${command:eide.project.uploadToDevice}",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "build and flash",
+            "type": "shell",
+            "command": "${command:eide.project.buildAndFlash}",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "rebuild",
+            "type": "shell",
+            "command": "${command:eide.project.rebuild}",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "clean",
+            "type": "shell",
+            "command": "${command:eide.project.clean}",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "upload file",
+            "type": "shell",
+            "command":"bypy",
+            "args": [
+                "upload",
+                "${workspaceFolder}\\release\\",
+                "/bin/SoftwareDevelopment/SD.11.0",
+            ],
+            "group": {
+                "kind": "test",
+                "isDefault": true,
+            },
+            "dependsOn":"build",
+            "detail": "upload the bin file",
+            "problemMatcher": []
+        },
+        {
+            "label": "Copy file",
+            "type": "shell",
+            "command":"powershell",
+            "args": [
+                "-Command",
+                "Remove-Item -Path ${workspaceFolder}/release/*.bin;",
+                "Remove-Item -Path ${workspaceFolder}/release/*.hex;",
+                "Copy-Item -Path ${workspaceFolder}/build/SD.11.0/SD.11.0.bin ${workspaceFolder}/release;",
+                "Copy-Item -Path ${workspaceFolder}/build/SD.11.0/SD.11.0.hex ${workspaceFolder}/release;",
+            ],
+            "group": {
+                "kind": "test",
+                "isDefault": true,
+            },
+            "dependsOn":"upload file",
+            "detail": "Copy the bin file",
+            "problemMatcher": []
+        },
+        {
+            "label": "version build by python",
+            "type": "shell",
+            "command":"python",
+            "args": [
+                "E:/svn/Python/fileOperation/fileOperation.py",
+                "fileVersion",
+                "--hFile",
+                "${workspaceFolder}\\Source\\app\\system.h",
+                "--o",
+                "${workspaceFolder}\\release\\SD.11.0.bin",
+                "${workspaceFolder}\\release\\SD.11.0.hex",
+                "--p",
+                "GK_MainFW_Ver"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true,
+            },
+            "dependsOn":"Copy file",
+            "detail": "version build",
+            "problemMatcher": []
+        }
+    ]
+}

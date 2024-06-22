@@ -1,0 +1,251 @@
+{
+  "name": "SD.11.0",
+  "type": "ARM",
+  "dependenceList": [],
+  "srcDirs": [],
+  "virtualFolder": {
+    "name": "<virtual_root>",
+    "files": [],
+    "folders": [
+      {
+        "name": "app",
+        "files": [
+          {
+            "path": "Source/app/crontab.c"
+          },
+          {
+            "path": "Source/app/main.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "driver",
+        "files": [
+          {
+            "path": "Source/driver/aip33620.c"
+          },
+          {
+            "path": "Source/driver/board.c"
+          },
+          {
+            "path": "Source/driver/delay.c"
+          },
+          {
+            "path": "Source/driver/flash.c"
+          },
+          {
+            "path": "Source/driver/led_animation.c"
+          },
+          {
+            "path": "Source/driver/led.c"
+          },
+          {
+            "path": "Source/driver/slow_action.c"
+          },
+          {
+            "path": "Source/driver/table.c"
+          },
+          {
+            "path": "Source/driver/trace.c"
+          },
+          {
+            "path": "Source/driver/voice.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "lib",
+        "files": [
+          {
+            "path": "../../../Common/MM32F0160_V1.2.3/Device/Project/release/mm32f0160.lib"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "startup",
+        "files": [
+          {
+            "path": "../../../Common/MM32F0160_V1.2.3/Device/MM32F0160/Source/KEIL_StartAsm/startup_mm32f0160_keil.s"
+          },
+          {
+            "path": "../../../Common/MM32F0160_V1.2.3/Device/MM32F0160/Source/system_mm32f0160.c"
+          }
+        ],
+        "folders": []
+      }
+    ]
+  },
+  "outDir": "build",
+  "deviceName": "MM32F0162D6PV",
+  "packDir": ".pack/MindMotion/MM32F0160_DFP_1.0.0",
+  "miscInfo": {
+    "uid": "4804ebfc3ceff6df0cb0ecaa973c276f"
+  },
+  "targets": {
+    "SD.11.0": {
+      "excludeList": [],
+      "toolchain": "AC5",
+      "compileConfig": {
+        "cpuType": "Cortex-M0",
+        "floatingPointHardware": "none",
+        "scatterFilePath": "",
+        "useCustomScatterFile": false,
+        "storageLayout": {
+          "RAM": [
+            {
+              "tag": "RAM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "noInit": false
+            },
+            {
+              "tag": "RAM",
+              "id": 2,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "noInit": false
+            },
+            {
+              "tag": "RAM",
+              "id": 3,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "noInit": false
+            },
+            {
+              "tag": "IRAM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x20000000",
+                "size": "0x4000"
+              },
+              "isChecked": true,
+              "noInit": false
+            },
+            {
+              "tag": "IRAM",
+              "id": 2,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "noInit": false
+            }
+          ],
+          "ROM": [
+            {
+              "tag": "ROM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "isStartup": false
+            },
+            {
+              "tag": "ROM",
+              "id": 2,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "isStartup": false
+            },
+            {
+              "tag": "ROM",
+              "id": 3,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "isStartup": false
+            },
+            {
+              "tag": "IROM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x8000000",
+                "size": "0x1f000"
+              },
+              "isChecked": true,
+              "isStartup": true
+            },
+            {
+              "tag": "IROM",
+              "id": 2,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "isStartup": false
+            }
+          ]
+        },
+        "options": "null"
+      },
+      "uploader": "pyOCD",
+      "uploadConfig": {
+        "bin": "",
+        "targetName": "mm32f0162d6pv",
+        "baseAddr": "0x08000000",
+        "speed": "1M",
+        "config": ".eide/sd.11.0.pyocd.yaml",
+        "otherCmds": ""
+      },
+      "uploadConfigMap": {
+        "JLink": {
+          "bin": "",
+          "baseAddr": "",
+          "cpuInfo": {
+            "vendor": "null",
+            "cpuName": "null"
+          },
+          "proType": 1,
+          "speed": 8000,
+          "otherCmds": ""
+        },
+        "OpenOCD": {
+          "bin": "",
+          "target": "mm32f0160",
+          "interface": "cmsis-dap",
+          "baseAddr": "0x08000000"
+        }
+      },
+      "custom_dep": {
+        "name": "default",
+        "incList": [
+          "Source/app",
+          "Source/driver",
+          "../../../Common/MM32F0160_V1.2.3/Device/MM32F0160/HAL_lib/inc",
+          "../../../Common/MM32F0160_V1.2.3/Device/MM32F0160/Include",
+          "../../../Common/MM32F0160_V1.2.3/Device/CMSIS/KEIL_CORE",
+          ".cmsis/include",
+          "RTE/_SD.11.0"
+        ],
+        "libList": [],
+        "defineList": [
+          "USE_STDPERIPH_DRIVER"
+        ]
+      }
+    }
+  },
+  "version": "3.4"
+}
